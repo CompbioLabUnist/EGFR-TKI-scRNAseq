@@ -1,4 +1,3 @@
-
 library(Seurat)
 
 seurat.files <- Sys.glob("./*.qc.scater.Rout")
@@ -24,7 +23,7 @@ seurat.obj <- RunPCA(object = seurat.obj, features = VariableFeatures(object = s
 seurat.obj <- FindNeighbors(object = seurat.obj, dims = 1:24, force.recalc = T)
 seurat.obj <- FindClusters(object = seurat.obj, resolution = 0.6)
 seurat.obj <- RunTSNE(object = seurat.obj, dims = 1:24)
-x.markers <- FindAllMarkers(object = seurat.obj.filter, min.pct = 0.25, logfc.threshold = 0.25)
+markers <- FindAllMarkers(object = seurat.obj.filter, min.pct = 0.25, logfc.threshold = 0.25)
 
 
 cca.obj.list <- list()
